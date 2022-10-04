@@ -7,16 +7,13 @@ int FinalArrayLength (string[] array)
     int l = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i].Length <= 3)
+        if (array[i].Length <= 4)
         {
             l++;
         }
     }
     return l;
 }
-
-
-
 
 string []ArrayOfThreeCharacters (string[]array, int lengthArray)
 {
@@ -31,7 +28,7 @@ string []ArrayOfThreeCharacters (string[]array, int lengthArray)
     for (int i = 0; i < array.Length; i++)
     {
 
-        if (array[i].Length <= 3)
+        if (array[i].Length <= 4)
         {
             drawerForVariable = array[i];
             arrayEnd[j] = drawerForVariable;
@@ -44,9 +41,27 @@ string []ArrayOfThreeCharacters (string[]array, int lengthArray)
     return arrayEnd;
 }
 
+string [] FirstArray (int length)
+{
+    string value = " ";
+    string [] array = new string [length];
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine("Пожалуйста, введите текст в ячейку "+ i +" : ");
+        value =  Console.ReadLine()+" ";
+        array[i]  = value;
 
-string[] array  = {"Пекарь", "Три", "End", "Виктоия", "Самосвал", "Yo"};
+    }
+    return array;
+}
 
+//string[] array  = {"Пекарь", "Три", "End", "Виктоия", "Самосвал", "Yo"};
+
+Console.Write("Введите пожалуйста размер массива: ");
+int lenghtFirstArray =Convert.ToInt32( Console.ReadLine());
+
+
+string[] array =FirstArray(lenghtFirstArray);
 
 int l = FinalArrayLength(array);
 
