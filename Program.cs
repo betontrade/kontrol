@@ -2,13 +2,9 @@
 Console.WriteLine("Hello, World!");
 
 
-
-
-string []ArrayOfThreeCharacters (string[]array)
+int FinalArrayLength (string[] array)
 {
     int l = 0;
-    string drawerForVariable = "";
-
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
@@ -16,9 +12,19 @@ string []ArrayOfThreeCharacters (string[]array)
             l++;
         }
     }
+    return l;
+}
 
 
-    string[] arrayEnd = new string[l];
+
+
+string []ArrayOfThreeCharacters (string[]array, int lengthArray)
+{
+   
+    string drawerForVariable = "";
+
+
+    string[] arrayEnd = new string[lengthArray];
 
     int j = 0;
 
@@ -41,4 +47,7 @@ string []ArrayOfThreeCharacters (string[]array)
 
 string[] array  = {"Пекарь", "Три", "End", "Виктоия", "Самосвал", "Yo"};
 
-ArrayOfThreeCharacters(array);
+
+int l = FinalArrayLength(array);
+
+ArrayOfThreeCharacters(array, l);
