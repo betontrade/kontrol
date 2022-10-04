@@ -1,13 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-
-
+﻿
 int FinalArrayLength (string[] array)
 {
     int l = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i].Length <= 4)
+        if (array[i].Length <= 3)
         {
             l++;
         }
@@ -17,10 +14,7 @@ int FinalArrayLength (string[] array)
 
 string []ArrayOfThreeCharacters (string[]array, int lengthArray)
 {
-   
     string drawerForVariable = "";
-
-
     string[] arrayEnd = new string[lengthArray];
 
     int j = 0;
@@ -28,41 +22,59 @@ string []ArrayOfThreeCharacters (string[]array, int lengthArray)
     for (int i = 0; i < array.Length; i++)
     {
 
-        if (array[i].Length <= 4)
+        if (array[i].Length <= 3)
         {
             drawerForVariable = array[i];
             arrayEnd[j] = drawerForVariable;
-            
-            Console.WriteLine(Convert.ToString (arrayEnd[j]));
-
             j++;
         }
     }
     return arrayEnd;
 }
 
-string [] FirstArray (int length)
+string [] FillingFirstArray (int length)
 {
     string value = " ";
     string [] array = new string [length];
     for (int i = 0; i < array.Length; i++)
     {
-        Console.WriteLine("Пожалуйста, введите текст в ячейку "+ i +" : ");
-        value =  Console.ReadLine()+" ";
+        Console.Write("Пожалуйста, введите текст в ячейку "+ i +" : ");
+        value =  Console.ReadLine();
         array[i]  = value;
 
     }
     return array;
 }
 
-//string[] array  = {"Пекарь", "Три", "End", "Виктоия", "Самосвал", "Yo"};
+void PrintArray (string[] arrayFirst, string []arraySecond)
+{
+    Console.Write("[");
+    for (int i =0; i<arrayFirst.Length; i++)
+    {
+        Console.Write(arrayFirst[i]);
+        if (i<(arrayFirst.Length-1)) Console.Write(", ");
+    }
+    Console.Write("]");
+
+    Console.Write(" -> ");
+    Console.Write("[");
+    for (int j =0; j<arraySecond.Length; j++)
+    {
+        Console.Write(arraySecond[j]);
+        if (j<(arraySecond.Length-1)) Console.Write(", ");
+    }
+    Console.Write("]");
+}
 
 Console.Write("Введите пожалуйста размер массива: ");
 int lenghtFirstArray =Convert.ToInt32( Console.ReadLine());
 
-
-string[] array =FirstArray(lenghtFirstArray);
+string[] array =FillingFirstArray(lenghtFirstArray);
 
 int l = FinalArrayLength(array);
 
-ArrayOfThreeCharacters(array, l);
+string [] final = ArrayOfThreeCharacters(array, l);
+
+PrintArray(array, final);
+
+Console.WriteLine("");
